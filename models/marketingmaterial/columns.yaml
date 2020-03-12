@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: id
+        type: number
+    about:
+        label: about
+        type: text
+    company_id:
+        label: company_id
+        type: number
+    customer_info:
+        label: customer_info
+        type: text
+    customer_text:
+        label: customer_text
+        type: text
+    practical_info:
+        label: practical_info
+        type: text
+    remark:
+        label: remark
+        type: text
+    slogan:
+        label: slogan
+        type: text

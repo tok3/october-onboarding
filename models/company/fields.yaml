@@ -1,0 +1,41 @@
+fields:
+    Name:
+        label: 'eq3w.onboarding::lang.company.name'
+        span: full
+        type: text
+    address:
+        label: 'eq3w.onboarding::lang.company.address'
+        span: auto
+        type: text
+    address_2:
+        label: 'eq3w.onboarding::lang.company.address_2'
+        span: auto
+        type: text
+    postcode:
+        label: 'eq3w.onboarding::lang.company.postcode'
+        span: auto
+        type: text
+    city:
+        label: 'eq3w.onboarding::lang.company.city'
+        span: auto
+        type: text
+    company_no:
+        label: 'eq3w.onboarding::lang.company.comany_no'
+        span: auto
+        type: text
+    vat_no:
+        label: 'eq3w.onboarding::lang.company.vat_no'
+        span: auto
+        type: text
+    bank_account:
+        label: 'eq3w.onboarding::lang.company.bank_account'
+        span: full
+        type: text
+    iban:
+        label: IBAN
+        span: auto
+        type: text
+    bic:
+        label: BIC
+        span: auto
+        type: text

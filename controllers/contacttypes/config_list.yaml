@@ -1,0 +1,12 @@
+title: ContactTypes
+modelClass: Eq3w\Onboarding\Models\ContactTypes
+list: $/eq3w/onboarding/models/contacttypes/columns.yaml
+recordUrl: 'eq3w/onboarding/contacttypes/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

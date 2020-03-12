@@ -1,0 +1,158 @@
+<fieldset data-toggle="validator">
+    <lablel>
+
+        <h4 class=" g-font-weight-700 g-mb-20">{{ 'General Information'|_ }}</h4>
+
+    </lablel>
+   <!-- <div>
+        <input name="email" />
+        <span data-validate-for="email">futt und grüne bohnen</span>
+    </div>-->
+    <div class="row">
+       
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+                {{form_label('company[name]', 'Company Name'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[name]',company.name,{'class':'form-control form-control-md rounded-0'})}}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+       
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[address]', 'Address'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[address]',company.address,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+       
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[address_2]', 'Address 2'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[address_2]',company.address_2,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[postcode]', 'Postcode'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[postcode]',company.postcode,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[city]', 'City'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[city]',company.city,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[country]', 'Country'|_ ,{'class':'g-mb-10'}) }}
+                <select name="company[country]" class="form-control rounded-0">
+                    <option value="0">{{ 'Please Select'|_ }}</option>
+                    {% for country in __SELF__.getCountries %}
+                    <option {{ country.code== company.country ?
+                    'selected' : '' }} value="{{ country.code }}">{{ country.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+       
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[company_no]', 'company_no'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[company_no]',company.company_no,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[vat_no]', 'VAT No.'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[vat_no]',company.vat_no,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+       
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[bank_account]', 'Bank Account'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[bank_account]',company.bank_account,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[bank_name]', 'Bank Name'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[bank_name]',company.bank_name,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row">
+       
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[iban]', 'IBAN'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[iban]',company.iban,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+
+                {{form_label('company[bic]', 'BIC'|_ ,{'class':'g-mb-10'}) }}
+                {{form_text('company[bic]',company.bic,{'class':'form-control form-control-md rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+
+</fieldset>

@@ -1,0 +1,97 @@
+{% set contactTypes = __SELF__.contactTypes %}
+
+{#
+{% set cTypes = "'0':'Please Select','1':'Contract Negotiation','2':'Orders','3':'Finance','4':'Marketing','5':'Tech (API only)'" %}
+
+{{form_select('contacts[][type]', cTypes, data.type, {'class':'form_input form-control rounded-0'})}}
+#}
+
+<fieldset>
+    <lablel>
+
+        <h4 class=" g-font-weight-700 g-mb-20">{{ 'Contacts'|_ }}</h4>
+
+    </lablel>
+
+    {% for contact in data %}
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="inputGroup1_1">{{ 'Contact Type'|_ }}</label>
+                <select name="contacts[{{contact.id}}][type]" class="form-control rounded-0">
+                    <option value="0">{{ 'Please Select'|_ }}</option>
+                    {% for contactType in contactTypes %}
+                    <option {{ contact.type== contactType.id ?
+                    'selected' : '' }} value="{{ contactType.id }}">{{ contactType.name }}</option>
+                    {% endfor %}
+                    <optgroup label="****************************">
+
+                    </optgroup>
+                    <option style="margin-top:12px !important;" value="999">>>DELETE CONTACT<<</option>
+                </select>
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="inputGroup1_1">{{ 'First Name'|_ }}</label>
+                {{form_text('contacts['~contact.id~'][firstname]', contact.firstname,{'class':'form-control form-control-md rounded-0'}) }}
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="inputGroup1_1">{{ 'Last Name'|_ }}</label>
+                {{form_text('contacts['~contact.id~'][lastname]', contact.lastname,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="inputGroup1_1">{{ 'Position'|_ }}</label>
+                {{form_text('contacts['~contact.id~'][position]', contact.position,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10" for="inputGroup1_1">{{ 'E-Mail'|_ }}</label>
+                {{form_text('contacts['~contact.id~'][email]', contact.email,{'class':'form-control form-control-md rounded-0','required':'required','type':'email'}) }}
+
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20" style="white-space: nowrap">
+
+                <label class="g-mb-10" for="inputGroup1_1">{{ 'Phone'|_ }}</label>
+                {{form_text('contacts['~contact.id~'][phone]', contact.phone,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    {% endfor %}
+
+
+    <div class="row" id="addContact">
+        <!-- Left Column -->
+        <div class="col-md-12 text-right">
+            <a href="#" class=" btn btn-md u-btn-primary g-mb-15" data-toggle="modal" data-target="#modal-add-contact">
+                <i class="fa fa-plus-circle g-mr-5"></i>
+                {{ 'Add contact'|_ }}
+            </a>
+
+        </div>
+    </div>
+
+
+</fieldset>
+

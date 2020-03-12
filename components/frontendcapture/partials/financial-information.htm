@@ -1,0 +1,274 @@
+<fieldset>
+    <lablel>
+
+        <h4 class=" g-font-weight-700 g-mb-20">{{ 'Financial Information'|_ }}</h4>
+
+    </lablel>
+    <div class="row" id="modSales">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Please choose your sales model (you can choose multiple)'|_ }}
+            <a data-toggle="tooltip" title="{{ 'Please choose your sales model (you can choose multiple)'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
+        </div>
+        <div class="col-md-2">
+            <label class="form-check-inline u-check g-pl-25">
+
+                {{form_hidden('fininf[mod_sales]', '0') }}
+                {{form_checkbox('fininf[mod_sales]', '1',data.mod_sales, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smSales'}) }}
+                <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
+                    <i class="fa" data-check-icon=""></i>
+                </div>
+                &nbsp;{{ 'Sales'|_ }}
+
+            </label>
+        </div>
+
+        <div class="col-md-2">
+            <label class="form-check-inline u-check g-pl-25">
+                {{form_hidden('fininf[mod_engine]', '0') }}
+                {{form_checkbox('fininf[mod_engine]', '1',data.mod_engine, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smEngine'}) }}
+
+                <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
+                    <i class="fa" data-check-icon=""></i>
+                </div>
+                &nbsp;{{ 'Engine'|_ }}
+
+            </label>
+        </div>
+        <div class="col-md-3">
+            <label class="form-check-inline u-check g-pl-25">
+
+                {{form_hidden('fininf[mod_global]', '0') }}
+                {{form_checkbox('fininf[mod_global]', '1',data.mod_global, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smGG'}) }}
+
+                <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
+                    <i class="fa" data-check-icon=""></i>
+                </div>
+                &nbsp;{{ 'Global Giftcard'|_ }}
+
+            </label>
+        </div>
+        <!--<div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                <label class="form-check-inline u-check g-pl-25">
+
+                    {{form_hidden('fininf[mod_sales]', '0') }}
+                    {{form_checkbox('fininf[mod_sales]', '1',data.mod_sales, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smSales'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Sales'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('fininf[mod_engine]', '0') }}
+                    {{form_checkbox('fininf[mod_engine]', '1',data.mod_engine, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smEngine'}) }}
+
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Engine'|_ }}
+
+                </label>
+
+                <label class="form-check-inline u-check g-pl-25">
+
+                    {{form_hidden('fininf[mod_global]', '0') }}
+                    {{form_checkbox('fininf[mod_global]', '1',data.mod_global, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smGG'}) }}
+
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Global Giftcard'|_ }}
+
+                </label>
+            </div>
+
+        </div>-->
+
+    </div>
+
+
+    <div class="row g-mb-20" id="discountRates">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Please enter the discount rate(s)'|_ }}
+        </div>
+        <div class="col-sm-4 col-md-2">
+            <label class="d-md-none">Sales:</label>
+            <div class="input-group g-brd-primary--focus hidden" id="smSalesDisc">
+                <div class="input-group-append">
+                    {{form_text('fininf[disc_sales]',data.disc_sales,{'class':'form-control form-control-md rounded-0'})}}
+                    <span class="input-group-text rounded-0 g-bg-white g-color-gray-light-v1" style="border-left:none;"><i>%</i></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-md-2">
+            <div class="input-group g-brd-primary--focus hidden" id="smEngineDisc">
+                <label class="d-md-none">Engine:</label>
+                <div class="input-group-append">
+                    {{form_text('fininf[disc_engine]',data.disc_engine,{'class':'form-control form-control-md rounded-0'})}}
+
+                    <span class="input-group-text rounded-0 g-bg-white g-color-gray-light-v1" style="border-left:none;"><i>%</i></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-2">
+            <label class="d-md-none">Global:</label>
+
+            <div class="input-group g-brd-primary--focus hidden" id="smGGDisc">
+
+                <div class="input-group-append">
+                    {{form_text('fininf[disc_global]',data.disc_global,{'class':'form-control form-control-md rounded-0'})}}
+                    <span class="input-group-text rounded-0 g-bg-white g-color-gray-light-v1" style="border-left:none;"><i>%</i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'When is the discount granted?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_select('fininf[disc_granted]', {'0':'Please Select'|_ , '1' :'Directly'|_ },data.disc_granted,{'class':'form_input form-control rounded-0'})}}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Please select the payment model'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('fininf[payment_model]',
+                {'0':'Please Select'|_ , '1' :'Pre Payment'|_, '2' :'Post Payment'|_, '3' :'Commission'|_, '4' :'Deposit'|_ },
+                data.payment_model,
+                {'class':'form_input form-control rounded-0','id':'payment_model'})}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section id="wrpSetCom">
+       <!-- <h5 class="h6 text-info"><i class="fa fa-info-circle"></i> Please fill out the following only if you have selected commission model </h5>-->
+
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-md-4">
+                {{ 'How is the settlement made? '|_ }}
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group g-mb-20">
+                    {{form_select('fininf[settlement_mode]',
+                    {'0':'Please Select'|_ , '0' :'When supplier redeems on site '|_},
+                    data.settlement_mode,
+                    {'class':'form_input form-control rounded-0'})}}
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-md-4">
+                {{ 'How should we pay?'|_ }}
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group g-mb-20">
+                    {{form_select('fininf[payment_mode]',
+                    {'0':'Please Select'|_ , '0' :'We transfer the money'|_},
+                    data.payment_mode,
+                    {'class':'form_input form-control rounded-0'})}}
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Credit Terms'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_text('fininf[credit_terms]', data.credit_terms,{'class':'form-control form-control-md rounded-0'}) }}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Is VAT applied to the discount?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('fininf[vat_to_disc]',
+                {'0':'Please Select'|_ , '1' :'Yes'|_, '2' :'No'|_ },
+                data.vat_to_disc,
+                {'class':'form_input form-control rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Is VAT applied to the gift card itself?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_select('fininf[vat_to_card]',
+                {'0':'Please Select'|_ , '1' :'Yes'|_, '2' :'No'|_ },
+                data.vat_to_card,
+                {'class':'form_input form-control rounded-0'})}}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Do you feel that something is missing? Please enter here '|_ }}
+        </div>
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                {{form_text('fininf[remark]', data.remark,{'class':'form-control form-control-md rounded-0'}) }}
+            </div>
+
+        </div>
+    </div>
+
+
+</fieldset>
+

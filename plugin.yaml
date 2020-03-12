@@ -1,0 +1,16 @@
+plugin:
+    name: 'eq3w.onboarding::lang.plugin.name'
+    description: 'eq3w.onboarding::lang.plugin.description'
+    author: 'Tobias Koch'
+    icon: oc-icon-anchor
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: 'eq3w.onboarding::lang.plugin.name'
+        url: eq3w/onboarding/companies
+        icon: icon-anchor
+        sideMenu:
+            side-menu-item:
+                label: 'Contact Types'
+                url: eq3w/onboarding/contactTypes
+                icon: icon-sitemap

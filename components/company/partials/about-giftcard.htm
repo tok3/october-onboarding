@@ -1,0 +1,567 @@
+<fieldset>
+    <lablel>
+
+        <h4 class=" g-font-weight-700 g-mb-20">{{ 'About the Giftcard'|_ }}</h4>
+
+    </lablel>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Does your gift card has a specific name? (e.g. eGift Card, gift voucher, etc)'|_ }}
+        </div>
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                {{form_text('card[name]',card.name,{'class':'form-control form-control-md rounded-0'})}}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'In which channels can we sell your gift cards? <br>(you can choose multiple)'|_ }}
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_type][b2b]', '0') }}
+                    {{form_checkbox('card[dist_type][b2b]', '1',card.dist_type.b2b, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <!-- <input class="g-hidden-xs-up g-pos-abs g-top-0 g-left-0" type="checkbox" checked="">-->
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'B2B'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_type][b2c]', '0') }}
+                    {{form_checkbox('card[dist_type][b2c]', '1',card.dist_type.b2c, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'B2C'|_ }}
+
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Through which GoGift site shall we sell your gift cards? (you can choose multiple)'|_ }}
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                <label class="form-check-inline u-check g-pl-25">
+
+                    {{form_hidden('card[dist_site][DNK]', '0') }}
+                    {{form_checkbox('card[dist_site][DNK]', '1',card.dist_site.DNK, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Denmark'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_site][NOR]', '0') }}
+                    {{form_checkbox('card[dist_site][NOR]', '1',card.dist_site.NOR, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Norway'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_site][FIN]', '0') }}
+                    {{form_checkbox('card[dist_site][FIN]', '1',card.dist_site.FIN, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Finland'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_site][DEU]', '0') }}
+                    {{form_checkbox('card[dist_site][DEU]', '1',card.dist_site.DEU, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Germany'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_site][SWE]', '0') }}
+                    {{form_checkbox('card[dist_site][SWE]', '1',card.dist_site.SWE, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Sweden'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[dist_site][GLOBAL]', '0') }}
+                    {{form_checkbox('card[dist_site][GLOBAL]', '1',card.dist_site.GLOBAL, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Global'|_ }}
+
+                </label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'How can we deliver your gift card to our customers?'|_ }}
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[delivery_channel][digital]', '0') }}
+                    {{form_checkbox('card[delivery_channel][digital]', '1',card.delivery_channel.email, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Digital Delivery'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+
+                    {{form_hidden('card[delivery_channel][physical]', '0') }}
+                    {{form_checkbox('card[delivery_channel][physical]', '1',card.delivery_channel.post, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Physical Delivery'|_ }}
+
+                </label>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Who is your gift card processor?'|_ }}
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+
+                {{form_text('card[processor]', card.processor,{'class':'form-control form-control-md rounded-0'}) }}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Can we order through API?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('card[ordering_api]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.ordering_api,
+                {'class':'form_input form-control rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Is there a minimum order requirement?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('card[has_min_req]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.has_min_req,
+                {'class':'form_input form-control rounded-0'})}}
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+                {{form_text('card[min_req_val]', card.min_req_val,{'class':'form-control form-control-md rounded-0','placeholder':'Please enter the Value here'|_}) }}
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'What format has the gift card? (you can choose multiple)'|_ }}
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[card_formats][paper]', '0') }}
+                    {{form_checkbox('card[card_formats][paper]', '1',card.card_formats.paper, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Paper Gift Voucher'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[card_formats][plastic]', '0') }}
+                    {{form_checkbox('card[card_formats][plastic]', '1',card.card_formats.plastic, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Plastic Gift Card'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[card_formats][codes]', '0') }}
+                    {{form_checkbox('card[card_formats][codes]', '1',card.card_formats.codes, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp; {{ 'Electronic Codes'|_ }}
+
+                </label>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'If it is a plastic gift card, can we load the value via API?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_select('card[val_per_api]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.val_per_api,
+                {'class':'form_input form-control rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'If it is a plastic gift card, is there a PIN-Number on the gift card?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_select('card[pin_on_card]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.pin_on_card,
+                {'class':'form_input form-control rounded-0'})}}
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'How many gift cards can be redeemed in the same transaction?'|_ }}
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_text('card[redeem_per_trans]', card.redeem_per_trans,{'class':'form-control form-control-md rounded-0','placeholder':'Please enter the Value here'|_,'id':'redeem_per_trans'}) }}
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row align-items-center">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Do you offer fixed denominations?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group my-auto g-mb-20">
+                {{form_select('card[fixed_denom]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.fixed_denom,
+                {'class':'form_input form-control rounded-0','id':'fixedDenom'})}}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row align-items-center" id="denomFixed">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'What denominations are available?'|_ }}
+        </div>
+        <div class="col-md-6">
+            <div class="form-group my-auto g-mb-20">
+                {{form_text('card[avail_denom]', card.avail_denom,{'class':'form-control form-control-md rounded-0','placeholder':'Please enter the available denominations or the range from-to'|_,'id':'avail_denom'}) }}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row align-items-center" id="denomRange">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'What is the denomination range?'|_ }}
+        </div>
+        <div class="col-md-3">
+            <div class="form-group my-auto g-mb-20">
+                {{form_text('card[min_denom]', card.min_denom,{'class':'form-control form-control-md rounded-0','placeholder':'Please enter min. value'|_,'id':'min_denom'}) }}
+
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="form-group my-auto g-mb-20">
+                {{form_text('card[max_denom]', card.max_denom,{'class':'form-control form-control-md rounded-0','placeholder':'Please enter max. value'|_,'id':'max_denom'}) }}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Can the gift card redeemed online, in store or both?'|_ }}
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-group g-mb-20">
+
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[point_of_redeeming][online]', '0') }}
+                    {{form_checkbox('card[point_of_redeeming][online]', '1',card.point_of_redeeming.online, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Online'|_ }}
+
+                </label>
+                <label class="form-check-inline u-check g-pl-25">
+                    {{form_hidden('card[point_of_redeeming][store]', '0') }}
+                    {{form_checkbox('card[point_of_redeeming][store]', '1',card.point_of_redeeming.store, {'class':'g-hidden-xs-up g-pos-abs g-top-0 g-left-0'}) }}
+                    <div class="u-check-icon-checkbox-v4 g-absolute-centered--y g-left-0">
+                        <i class="fa" data-check-icon=""></i>
+                    </div>
+                    &nbsp;{{ 'Store'|_ }}
+
+                </label>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Can the gift card redeemed across multiple countries?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('card[multiple_country_redeeming]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.multiple_country_redeeming,
+                {'class':'form_input form-control rounded-0'})}}
+
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group g-mb-20">
+                {{form_text('card[countries_redeem_in]', card.countries_redeem_in,{'class':'form-control form-control-md rounded-0','placeholder':'Please specify countries'|_}) }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row align-items-center g-mb-15">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Do you have possibility to check the gift card balance?'|_ }}
+        </div>
+        <div class="col-md-2">
+            {{form_select('card[abil_check_balance]',
+            {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+            card.abil_check_balance,
+            {'class':'form_input form-control rounded-0','id':'balanceCheck'})}}
+
+        </div>
+
+
+        <div class="col-md-4 balanceCheck ">
+            <div class="form-group my-auto g-mb-20">
+                {{form_text('card[balance_check]', card.balance_check,{'class':'form-control form-control-md rounded-0','placeholder':'Enter Balance Check'}) }}
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'If we need to block a gift card, how should we contact you?'|_ }}
+        </div>
+        <div class="col-md-6">
+            <div class="form-group g-mb-20">
+
+                {{form_text('card[contact_to_block]', card.contact_to_block,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Will we receive a replacement gift card or will it be credited to our next order?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_select('card[replacement_type]',
+                {'n/a':'Please Select'|_ , 'Replacement code' :'Replacement code'|_, 'Credid' :'Credit'|_ },
+                card.replacement_type,
+                {'class':'form_input form-control rounded-0'})}}
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Do the gift cards have an expiry date?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('card[has_exp_date]',
+                {'9':'Please Select'|_ , '1' :'Yes'|_, '0' :'No'|_ },
+                card.has_exp_date,
+                {'class':'form_input form-control rounded-0','id':'hasExpDate'})}}
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row" id="validityPeriod">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'If yes, how many months are they valid?'|_ }}
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_text('card[validity_in_month]', card.validity_in_month,{'class':'form-control form-control-md rounded-0','placeholder':'please state validity in months'|_}) }}
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'When does the validity start from?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('card[validity_starts_from]',
+                {'9':'Please Select'|_ , 'on reveive' :'When We receive them'|_},
+                card.validity_starts_from,
+                {'class':'form_input form-control rounded-0'})}}
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'If we receive digital codes from you, we can prepare the giftcard template, or will you provide this to us?'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                {{form_select('card[templ_provided_by]',
+                {'n/a':'Please Select'|_ , 'on reveive' :'Provided by supplier'|_, 'gogift' :'Provided by GoGift'|_},
+                card.templ_provided_by,
+                {'class':'form_input form-control rounded-0'})}}
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row">
+        <!-- Left Column -->
+        <div class="col-md-4">
+            {{ 'Do you use a barcode on the template? If yes, please enter the barcode type.'|_ }}
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+
+                {{form_text('card[template_barcode_type]', card.template_barcode_type,{'class':'form-control form-control-md rounded-0','placeholder':'please enter barcode type'|_}) }}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% partial __SELF__ ~ '::partials/buttons' %}
+</fieldset>

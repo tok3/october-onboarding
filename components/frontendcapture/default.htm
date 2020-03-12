@@ -1,0 +1,67 @@
+{% set code = __SELF__.getCode %}
+{% set company = __SELF__.getCompData %}
+
+
+{% if company.id > 0 %}
+
+{{ form_open({ url: 'company/update', files: true,id:"feCapture", class:"g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30 col-md-12",'data-is-locked':company.locked,}) }}
+
+<!--
+
+<form method="POST" action="http://localhost/onboarding-gogift/company/update" accept-charset="UTF-8" id="feCapture" class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30 col-md-12" data-is-locked="{{company.locked}}" enctype="multipart/form-data" data-request="onSubmit" data-request-validate data-request-flssh>
+-->
+
+
+<input type="hidden" name="company_id" value="{{company.id}}">
+<input type="hidden" name="fe_captured" value="1">
+
+
+
+<!-- SmartWizard html -->
+<div id="smartwizard" class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30 col-md-12">
+
+    <h1>Onbording</h1>
+
+    <ul>
+        <li><a href="#step-1">Step 1<br/><small>General Information</small></a></li>
+        <li><a href="#step-2">Step 2<br/><small>Contacts</small></a></li>
+        <li><a href="#step-3">Step 3<br/><small>Financial Information</small></a></li>
+        <li><a href="#step-4">Step 4<br/><small>About the Giftcard</small></a></li>
+        <li><a href="#step-5">Step 5<br/><small>Marketing Material</small></a></li>
+    </ul>
+
+    <div>
+        <div id="step-1" class="g-pt-15">
+            {% partial __SELF__ ~ '::partials/general-information' company=company%}
+
+        </div>
+        <div id="step-2" class="g-pt-15">
+
+            {% partial __SELF__ ~ '::partials/contacts' data=company.contacts%}
+        </div>
+        <div id="step-3" class="g-pt-15">
+            {% partial __SELF__ ~ '::partials/financial-information' data=company.fininfo %}
+        </div>
+        <div id="step-4" class="g-pt-15"><!---->
+            {% partial __SELF__ ~ '::partials/about-giftcard' card=company.giftcard %}
+        </div>
+        <div id="step-5" class="g-pt-15">
+            {% partial __SELF__ ~ '::partials/marketing-material' marketing=company.marketing company=company%}
+        </div>
+    </div>
+</div>
+
+<div class="pull-right">
+
+    <span id="prev-btn" class="btn btn-md u-btn-bluegray g-mb-15">Previous</span>
+    <span id="next-btn" class="btn btn-md u-btn-bluegray g-mb-15">Next</span>
+    <button id="sbmBtn" class="btn btn-md u-btn-primary g-ml-10 g-mb-15" type="submit">Save / Update</button>
+</div>
+
+</form>
+{%else%}
+<meta http-equiv="refresh" content="0; url={{url('/')}}"/>
+{% endif %}
+
+{% partial __SELF__ ~ '::partials/add-contact' company_id=company.id %}
+

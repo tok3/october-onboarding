@@ -1,0 +1,12 @@
+title: Companies
+modelClass: Eq3w\Onboarding\Models\Company
+list: $/eq3w/onboarding/models/company/columns.yaml
+recordUrl: 'eq3w/onboarding/companies/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: 20
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

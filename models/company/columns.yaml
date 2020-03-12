@@ -1,0 +1,47 @@
+columns:
+    id:
+        label: ID
+        type: number
+    name:
+        label: 'eq3w.onboarding::lang.company.name'
+        type: text
+        searchable: true
+        sortable: true
+    city:
+        label: 'eq3w.onboarding::lang.company.city'
+        type: text
+        searchable: true
+        sortable: true
+    postcode:
+        label: 'eq3w.onboarding::lang.company.postcode'
+        type: text
+        searchable: true
+        sortable: true
+    address:
+        label: 'eq3w.onboarding::lang.company.address'
+        type: text
+        invisible: true
+    address_2:
+        label: 'eq3w.onboarding::lang.company.address_2'
+        type: text
+        invisible: true
+    bic:
+        label: bic
+        type: text
+        invisible: true
+    company_no:
+        label: company_no
+        type: text
+        invisible: true
+    iban:
+        label: iban
+        type: text
+        invisible: true
+    swift:
+        label: swift
+        type: text
+        invisible: true
+    vat_no:
+        label: 'eq3w.onboarding::lang.company.vat_no'
+        type: text
+        invisible: true

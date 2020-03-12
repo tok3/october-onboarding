@@ -1,0 +1,10 @@
+fields:
+    compmanylogo:
+        label: 'eq3w.onboarding::lang.marketing.company_logo'
+        span: auto
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload

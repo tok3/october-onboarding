@@ -1,0 +1,9 @@
+fields:
+    name:
+        label: 'eq3w.onboarding::lang.plugin.name'
+        span: auto
+        type: text
+    description:
+        label: 'eq3w.onboarding::lang.plugin.description'
+        span: auto
+        type: text

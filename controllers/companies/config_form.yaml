@@ -1,0 +1,10 @@
+name: Companies
+form: $/eq3w/onboarding/models/company/fields.yaml
+modelClass: Eq3w\Onboarding\Models\Company
+defaultRedirect: eq3w/onboarding/companies
+create:
+    redirect: 'eq3w/onboarding/companies/update/:id'
+    redirectClose: eq3w/onboarding/companies
+update:
+    redirect: eq3w/onboarding/companies
+    redirectClose: eq3w/onboarding/companies

@@ -1,0 +1,16 @@
+.novis
+{
+    visibility: hidden;
+    display: none;
+
+}
+.center
+{
+    text-align: center !important;
+
+}
+
+
+.align-items-center{
+    margin-bottom:1em !important;
+}

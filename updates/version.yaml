@@ -1,0 +1,176 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table eq3w_onboarding_companies'
+    - builder_table_create_eq3w_onboarding_companies.php
+1.0.3:
+    - 'Created table eq3w_onboarding_contacts'
+    - builder_table_create_eq3w_onboarding_contacts.php
+1.0.4:
+    - 'Created table eq3w_onboarding_contact_types'
+    - builder_table_create_eq3w_onboarding_contact_types.php
+1.0.5:
+    - 'Created table eq3w_onboarding_financial_information'
+    - builder_table_create_eq3w_onboarding_financial_information.php
+1.0.6:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information.php
+1.0.7:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_2.php
+1.0.8:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies.php
+1.0.9:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_3.php
+1.0.10:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_4.php
+1.0.11:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_5.php
+1.0.12:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_6.php
+1.0.13:
+    - 'Created table eq3w_onboarding_gifcard_details'
+    - builder_table_create_eq3w_onboarding_gifcard_details.php
+1.0.14:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details.php
+1.0.15:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_2.php
+1.0.16:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_3.php
+1.0.17:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_4.php
+1.0.18:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_5.php
+1.0.19:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_6.php
+1.0.20:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_7.php
+1.0.21:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_8.php
+1.0.22:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_9.php
+1.0.23:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_10.php
+1.0.24:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_11.php
+1.0.25:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_12.php
+1.0.26:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_13.php
+1.0.27:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_14.php
+1.0.28:
+    - 'Created table eq3w_onboarding_marketing_material'
+    - builder_table_create_eq3w_onboarding_marketing_material.php
+1.0.29:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material.php
+1.0.30:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_2.php
+1.0.31:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_3.php
+1.0.32:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_4.php
+1.0.33:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_5.php
+1.0.34:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_15.php
+1.0.35:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_7.php
+1.0.36:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_8.php
+1.0.37:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_9.php
+1.0.38:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_2.php
+1.0.39:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_3.php
+1.0.40:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_4.php
+1.0.41:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_10.php
+1.0.42:
+    - 'Created table eq3w_onboarding_bank_accounts'
+    - builder_table_create_eq3w_onboarding_bank_accounts.php
+1.0.43:
+    - 'Updated table eq3w_onboarding_bank_accounts'
+    - builder_table_update_eq3w_onboarding_bank_accounts.php
+1.0.44:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_5.php
+1.0.45:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_6.php
+1.0.46:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_6.php
+1.0.47:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_7.php
+1.0.48:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_8.php
+1.0.49:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_9.php
+1.0.50:
+    - 'Updated table eq3w_onboarding_financial_information'
+    - builder_table_update_eq3w_onboarding_financial_information_11.php
+1.0.51:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_16.php
+1.0.52:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_17.php
+1.0.53:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_10.php
+1.0.54:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_11.php
+1.0.55:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_18.php
+1.0.56:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details_19.php
+1.0.57:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_7.php
+1.0.58:
+    - 'Updated table eq3w_onboarding_companies'
+    - builder_table_update_eq3w_onboarding_companies_8.php
+1.0.59:
+    - 'Updated table eq3w_onboarding_marketing_material'
+    - builder_table_update_eq3w_onboarding_marketing_material_12.php

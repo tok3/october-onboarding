@@ -1,0 +1,11 @@
+name: ContactTypes
+modelClass: Eq3w\Onboarding\Models\ContactTypes
+form: $/eq3w/onboarding/models/contacttypes/fields.yaml
+defaultRedirect: eq3w/onboarding/contacttypes
+create:
+    redirect: 'eq3w/onboarding/contacttypes/update/:id'
+    redirectClose: eq3w/onboarding/contacttypes
+update:
+    redirect: eq3w/onboarding/contacttypes
+    redirectClose: eq3w/onboarding/contacttypes
+preview: {  }

@@ -1,0 +1,107 @@
+{% set fake = __SELF__.fakesave %}
+
+{% set editLink = __SELF__.getProperty('editLink') %}
+
+{% set companies = __SELF__.companies %}
+
+
+<div class="container-fluid flex-grow-1 container-p-y">
+
+    <h4 class="font-weight-bold mb-4">
+        <span class="text-muted font-weight-light">Companies / </span>List
+
+    </h4>
+    <div class="row">
+        <div class="col-sm-12 text-right">
+            <p>
+                <a class="" href="{{url('company/create')}}">
+                    <button type="button" class="btn btn-sm btn-success"><span class="fa fa-plus"></span>&nbsp;&nbsp;Create</button>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <table id="compGrid" class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Postcode</th>
+            <th>Confirmed</th>
+            <th>Locked</th>
+            <th>Complete</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+        {% for company in companies %}
+
+        <tr class="odd gradeX">
+            <td>{{company.id}}</td>
+            <td>{{company.name}}</td>
+            <td>{{company.city}}</td>
+            <td class="center">{{company.postcode}}</td>
+            <td class="center" data-order="{{ company.confirmed}}" data-search="{{ company.confirmed == 1 ? 'confirmed'}}">
+
+                <label class="switcher switcher-success">
+                    <input disabled type="checkbox" class="switcher-input" {{ company.confirmed == 1 ? 'checked'}}>
+
+                    <span class="switcher-indicator">
+                      <span class="switcher-yes">
+                        <span class="ion ion-md-checkmark"></span>
+                      </span>
+                      <span class="switcher-no">
+                        <span class="ion ion-md-close"></span>
+                      </span>
+                    </span>
+                </label>
+
+            </td>
+            <td class="center" data-order="{{ company.locked}}" data-search="{{ company.locked == 1 ? 'locked'}}">
+
+                <label class="switcher switcher-danger">
+                    <input disabled type="checkbox" class="switcher-input" {{ company.locked == 1 ? 'checked'}}>
+
+                    <span class="switcher-indicator">
+                      <span class="switcher-yes">
+                        <span class="ion ion-md-checkmark"></span>
+                      </span>
+                      <span class="switcher-no">
+                        <span class="ion ion-md-close"></span>
+                      </span>
+                    </span>
+                </label>
+
+            </td>
+            <td class="center" data-order="{{ company.onboarding_complete}}" data-search="{{ company.onboarding_complete == 1 ? 'complete'}}">
+
+                <label class="switcher switcher">
+                    <input disabled type="checkbox" class="switcher-input" {{ company.onboarding_complete == 1 ? 'checked'}}>
+
+                    <span class="switcher-indicator">
+                      <span class="switcher-yes">
+                        <span class="ion ion-md-checkmark"></span>
+                      </span>
+                      <span class="switcher-no">
+                        <span class="ion ion-md-close"></span>
+                      </span>
+                    </span>
+                </label>
+
+
+            </td>
+            <td class="pull-right"><a href="{{url('company/'~company.id)}}">
+                <button type="button" class="btn btn-sm btn-primary"><span class="far fa-edit"></span>&nbsp;&nbsp;Edit</button>
+            </a></td>
+        </tr>
+
+        {%endfor%}
+
+        </tbody>
+    </table>
+
+
+</div>

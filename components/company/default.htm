@@ -1,0 +1,78 @@
+{% set company = __SELF__.get %}
+
+
+<div class="container-fluid flex-grow-1 container-p-y">
+
+    <h4 class="font-weight-bold mb-4">
+        <span class="text-muted font-weight-light">Company / </span> Detail
+
+    </h4>
+
+    <div class="card mb-4">
+        <div id="compTabs" class="card-body">
+
+            {{ form_open({ url: 'company/update', files: true }) }}
+            <input type="hidden" name="company_id" value="{{company.id}}">
+            <!-- tab -->
+
+            <div class="nav-tabs-top nav-responsive-xl">
+                <ul class="nav nav-tabs nav-tabs-comp">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#navs-top-responsive-link-1"><strong>{{ 'General Information'|_ }}</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#navs-top-responsive-link-2"><strong>{{ 'Contacts'|_ }}</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#navs-top-responsive-link-3"><strong>{{ 'Financial Information'|_ }}</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#navs-top-responsive-link-4"><strong>{{ 'About the Giftcard'|_ }}</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#navs-top-responsive-link-5"><strong>{{ 'Marketing Material'|_ }}</strong></a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade" id="navs-top-responsive-link-1">
+                        <div class="card-body">
+                            {% partial __SELF__ ~ '::partials/general-information' company=company %}
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="navs-top-responsive-link-2">
+                        <div class="card-body">
+                            {% partial __SELF__ ~ '::partials/contacts' data=company.contacts%}
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="navs-top-responsive-link-3">
+                        <div class="card-body">
+                            {% partial __SELF__ ~ '::partials/financial-information' data=company.fininfo %}
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="navs-top-responsive-link-4">
+                        <div class="card-body">
+                            {% partial __SELF__ ~ '::partials/about-giftcard' card=company.giftcard %}
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="navs-top-responsive-link-5">
+                        <div class="card-body">
+                            {% partial __SELF__ ~ '::partials/marketing-material' marketing=company.marketing %}
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- ende tab-->
+
+            {{form_close()}}
+
+
+        </div>
+    </div>
+
+</div>
+
+{% partial __SELF__ ~ '::partials/add-contact' company_id=company.id %}
+
