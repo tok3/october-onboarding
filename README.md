@@ -1,2 +1,2 @@
-# october-onboarding
+# october-onboarding-plugin
 GoGift Onboarding
