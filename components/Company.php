@@ -19,6 +19,7 @@ use DB;
 
 require 'vendor/autoload.php';
 
+use Martin\Forms\Classes\GDPR;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -61,6 +62,7 @@ class Company extends ComponentBase
      */
     public function get()
     {
+
 
         return Comp::where('id', $this->param('id'))->first();
 
@@ -528,7 +530,7 @@ class Company extends ComponentBase
         return Helper::getCountries();
 
     }
-    
+
     /**
      * Get all available Contact Types
      *
@@ -571,6 +573,36 @@ class Company extends ComponentBase
 
     }
 
+
+    /**
+     * Output Message translation to put in .Yaml
+     *
+     *
+     */
+    private function messageTranslationForYaml()
+    {
+        $msg = DB::table('rainlab_translate_messages')->get();
+
+        foreach ($msg as $key => $item)
+        {
+
+            echo $item->code . ": '";
+            $mdata = json_decode($item->message_data);
+
+
+            if (isset($mdata->en))
+            {
+                echo $mdata->en;
+            }
+            else
+            {
+                echo $mdata->x;
+
+            }
+
+            echo "'<br>";
+        }
+    }
 
     /**
      * TEST

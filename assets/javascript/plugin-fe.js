@@ -108,6 +108,7 @@ $(document).ready(function () {
 $(document).ready(function () {
 
 
+    $('[data-toggle="tooltip"]').addClass('toolTip');
     $('[data-toggle="tooltip"]').tooltip();
 });
 

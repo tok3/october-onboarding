@@ -7,8 +7,9 @@
     <div class="row" id="modSales">
         <!-- Left Column -->
         <div class="col-md-4">
+
             {{ 'Please choose your sales model (you can choose multiple)'|_ }}
-            <a data-toggle="tooltip" title="{{ 'Please choose your sales model (you can choose multiple)'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
+            <a data-toggle="tooltip" title="{{ 'help.mod.sales'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
         </div>
         <div class="col-md-2">
             <label class="form-check-inline u-check g-pl-25">
@@ -48,44 +49,6 @@
 
             </label>
         </div>
-        <!--<div class="col-md-8">
-            <div class="form-group g-mb-20">
-
-                <label class="form-check-inline u-check g-pl-25">
-
-                    {{form_hidden('fininf[mod_sales]', '0') }}
-                    {{form_checkbox('fininf[mod_sales]', '1',data.mod_sales, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smSales'}) }}
-                    <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
-                        <i class="fa" data-check-icon=""></i>
-                    </div>
-                    &nbsp;{{ 'Sales'|_ }}
-
-                </label>
-                <label class="form-check-inline u-check g-pl-25">
-                    {{form_hidden('fininf[mod_engine]', '0') }}
-                    {{form_checkbox('fininf[mod_engine]', '1',data.mod_engine, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smEngine'}) }}
-
-                    <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
-                        <i class="fa" data-check-icon=""></i>
-                    </div>
-                    &nbsp;{{ 'Engine'|_ }}
-
-                </label>
-
-                <label class="form-check-inline u-check g-pl-25">
-
-                    {{form_hidden('fininf[mod_global]', '0') }}
-                    {{form_checkbox('fininf[mod_global]', '1',data.mod_global, {'class':'salesmodel g-hidden-xs-up g-pos-abs g-top-0 g-left-0','id':'smGG'}) }}
-
-                    <div class="u-check-icon-checkbox-v4 g-absolute-centered&#45;&#45;y g-left-0">
-                        <i class="fa" data-check-icon=""></i>
-                    </div>
-                    &nbsp;{{ 'Global Giftcard'|_ }}
-
-                </label>
-            </div>
-
-        </div>-->
 
     </div>
 
@@ -93,7 +56,7 @@
     <div class="row g-mb-20" id="discountRates">
         <!-- Left Column -->
         <div class="col-md-4">
-            {{ 'Please enter the discount rate(s)'|_ }}
+            {{ 'Please enter the discount rate(s)'|_ }}&nbsp;<a data-toggle="tooltip" title="{{ 'help.disc.rates'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
         </div>
         <div class="col-sm-4 col-md-2">
             <label class="d-md-none">Sales:</label>
@@ -149,7 +112,7 @@
     <div class="row">
         <!-- Left Column -->
         <div class="col-md-4">
-            {{ 'Please select the payment model'|_ }}
+            {{ 'Please select the payment model'|_ }}&nbsp;<a data-toggle="tooltip" title="{{ 'help.payment.model'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
         </div>
 
         <div class="col-md-2">
@@ -207,7 +170,7 @@
     <div class="row">
         <!-- Left Column -->
         <div class="col-md-4">
-            {{ 'Credit Terms'|_ }}
+            {{ 'Credit Terms'|_ }}&nbsp;<a data-toggle="tooltip" title="{{ 'help.credit.terms'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
         </div>
 
         <div class="col-md-2">
@@ -258,7 +221,7 @@
     <div class="row">
         <!-- Left Column -->
         <div class="col-md-4">
-            {{ 'Do you feel that something is missing? Please enter here '|_ }}
+            {{ 'Do you feel that something is missing? Please enter here '|_ }}&nbsp;<a data-toggle="tooltip" title="{{ 'help.fininf.remark'|_ }}" href="#"><i class="fa fa-info-circle"></i></a>
         </div>
         <div class="col-md-8">
             <div class="form-group g-mb-20">
