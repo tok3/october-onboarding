@@ -176,3 +176,5 @@
     - builder_table_update_eq3w_onboarding_marketing_material_12.php
 1.0.60:
     - 'nav update'
+1.0.61:
+    - 'Helptexts added'
