@@ -4,26 +4,32 @@
         <h4 class=" g-font-weight-700 g-mb-20">{{ 'status'|_ }}</h4>
     </lablel>
 
-<p>
+    <p>
 
-<label>Onbording Code: </label>&nbsp;<kbd>{{company.onboarding_code}}</kbd>
-<br>
-    <a  class="btn btn-sm btn-outline-secondary" id="onbordingLink" href="{{url(company.onboarding_code~'/capture')}}" target="top">Visit Onbording Form</a>
+        <label>Onbording Code: </label>&nbsp;<kbd>{{company.onboarding_code}}</kbd>
+        <br>
 
-    <span id="icon-far-copy" style="cursor:pointer;" onclick="copyToClipboard('#cplink')"  title="Copy Link to Clipboard" data-title=".far.fa-copy" class="card icon-example d-inline-flex justify-content-center align-items-center my-2 mx-2"><i class="far fa-copy d-block"></i></span>
+        <a class="btn btn-sm btn-outline-secondary" id="onbordingLink" href="{{url(company.onboarding_code~'/capture')}}" target="top">Visit Onbording Form</a>
 
-    <span style="visibility:hidden" id="cplink">
+        <span id="icon-far-copy" style="cursor:pointer;" onclick="copyToClipboard('#cplink')" title="Copy Link to Clipboard" data-title=".far.fa-copy"
+              class="card icon-example d-inline-flex justify-content-center align-items-center my-2 mx-2"><i class="far fa-copy d-block"></i></span>
+
+        {% if company.confirmed == 1 %}
+
+        <a class="btn btn-sm btn-outline-success" id="onbordingLink" href="{{url('company/dlarch/'~company.id)}}" target="top">DOWNLOAD ONBOARDING DATA</a>
+
+        {% endif %}
+        <span style="visibility:hidden" id="cplink">
        {{url(company.onboarding_code~'/capture')}}
     </span>
 
-
-</p>
+    </p>
 
     <div class="demo-inline-spacing">
 
         <label class="switcher switcher">
             {{form_hidden('company[onboarding_complete]', '0') }}
-            <input type="checkbox" name="company[onboarding_complete]" value="1" class="switcher-input" {{ company.onboarding_complete == 1 ? 'checked'}}>
+            <input type="checkbox" name="company[onboarding_complete]" value="1" class="switcher-input" {{ company.onboarding_complete== 1 ? 'checked'}}>
 
             <span class="switcher-indicator">
                       <span class="switcher-yes">
@@ -38,7 +44,7 @@
 
         <label class="switcher switcher-success">
             {{form_hidden('company[confirmed]', '0') }}
-            <input type="checkbox" name="company[confirmed]" value="1" class="switcher-input" {{ company.confirmed == 1 ? 'checked'}}>
+            <input type="checkbox" name="company[confirmed]" value="1" class="switcher-input" {{ company.confirmed== 1 ? 'checked'}}>
 
             <span class="switcher-indicator">
                       <span class="switcher-yes">
@@ -53,7 +59,7 @@
 
         <label class="switcher switcher-danger">
             {{form_hidden('company[locked]', '0') }}
-            <input type="checkbox" name="company[locked]" value="1" class="switcher-input" {{ company.locked == 1 ? 'checked'}}>
+            <input type="checkbox" name="company[locked]" value="1" class="switcher-input" {{ company.locked== 1 ? 'checked'}}>
 
             <span class="switcher-indicator">
                       <span class="switcher-yes">
@@ -67,8 +73,7 @@
         </label>
 
 
-
     </div>
 
-<hr>
+    <hr>
 </fieldset>

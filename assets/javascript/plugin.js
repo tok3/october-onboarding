@@ -18,6 +18,11 @@ $(document).ready(function () {
 
     $('#compTabs li:eq(' + parseInt(sessionStorage['tab_id']) + ') a').tab('show'); // Select tab by name
 
+
+    $('.switcher-input').change(function () {
+        $( "#beForm" ).submit();
+    });
+
     //  end persistant tabs
 
 
@@ -79,7 +84,6 @@ function copyToClipboard(element) {
     document.execCommand("copy");
     $temp.remove();
 }
-
 
 
 // ---------------------------------------------------------------------------

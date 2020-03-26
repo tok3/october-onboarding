@@ -13,6 +13,7 @@ use Eq3w\Onboarding\Classes\Helper;
 
 use Eq3w\Onboarding\Classes\Testdata as Test;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Hash;
 use DB;
@@ -25,6 +26,7 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Company extends ComponentBase
 {
+
     public function componentDetails()
     {
         return [
@@ -68,16 +70,28 @@ class Company extends ComponentBase
 
     }
 
-    private function writeRow()
-    {
 
-    }
-
+    /**
+     * Create Excel
+     *
+     * @param $id
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
     public function createSpredsheet($id)
     {
+
+        $fields = include('plugins/eq3w/onboarding/export-fields.php');
+
+
+        $this->testFieldsfunc($fields, $id);
+        die();
+
+
         // ------------------------------------------------------
         // company
-        $data = Comp::where('id', $id)->first();
+
+        $data = Comp::select(array_keys($fields['company']))->where('id', $id)->first();
 
         $spreadsheet = new Spreadsheet();
         $sheetIndex = $spreadsheet->getIndex(
@@ -94,9 +108,9 @@ class Company extends ComponentBase
 
         foreach ($data->toArray() as $key => $value)
         {
-            $worksheet->setCellValue($alphas[$i] . '1', $key);
-            $worksheet->setCellValue($alphas[$i] . '2', $value);
 
+            $worksheet->setCellValue($alphas[$i] . '1', $fields['company'][$key]);
+            $worksheet->setCellValue($alphas[$i] . '2', $this->confFieldFunc($key, $value));
             ++$i;
         }
 
@@ -111,7 +125,7 @@ class Company extends ComponentBase
 
         }
 
-        $data = Contact::where('company_id', $id)->get()->toArray();
+        $data = Contact::select(array_keys($fields['contacts']))->where('company_id', $id)->get()->toArray();
 
         // Create a new worksheet
         $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Contacts');
@@ -159,96 +173,285 @@ class Company extends ComponentBase
         // ------------------------------------------------------
         // financial information
 
-        $data = FinInfo::select('mod_sales AS Sales Model')->where('company_id', $id)->first();
+        $data = FinInfo::select(array_keys($fields['financial_information']))->where('company_id', $id)->first();
 
 
-        // Create a new worksheet
-        $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Financial Information');
-
-        $i = 0;
-        $alphas = range('A', 'Z');
-
-        foreach ($data->toArray() as $key => $value)
+        if (!empty($data))
         {
-            $worksheet->setCellValue($alphas[$i] . '1', $key);
+
+            // Create a new worksheet
+            $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Financial Information');
+
+            $i = 0;
+            $alphas = range('A', 'Z');
+
+            foreach ($data->toArray() as $key => $value)
+            {
+                $worksheet->setCellValue($alphas[$i] . '1', $fields['financial_information'][$key]);
 
 
-            $worksheet->setCellValue($alphas[$i] . '2', $value);
+                $worksheet->setCellValue($alphas[$i] . '2', $this->confFieldFunc($key, $value));
 
-            ++$i;
+                ++$i;
+
+            }
+
+
+            $spreadsheet->addSheet($worksheet, 1);
         }
-
-        $spreadsheet->addSheet($worksheet, 1);
-
         // ------------------------------------------------------
         // Marketing Material
 
-        $data = MarketingMaterial::where('company_id', $id)->first();
+        $data = MarketingMaterial::select(array_keys($fields['marketing_material']))->where('company_id', $id)->first();
 
-
-        // Create a new worksheet
-        $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Marketing');
-
-        $i = 0;
-        $alphas = range('A', 'Z');
-
-        foreach ($data->toArray() as $key => $value)
+        if (!empty($data))
         {
-            $worksheet->setCellValue($alphas[$i] . '1', $key);
-            $worksheet->setCellValue($alphas[$i] . '2', $value);
 
-            ++$i;
+            // Create a new worksheet
+            $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Marketing');
+
+            $i = 0;
+            $alphas = range('A', 'Z');
+
+
+            foreach ($data->toArray() as $key => $value)
+            {
+                $worksheet->setCellValue($alphas[$i] . '1', $fields['marketing_material'][$key]);
+                $worksheet->setCellValue($alphas[$i] . '2', $this->confFieldFunc($key, $value));
+
+                ++$i;
+            }
+
+
+            $spreadsheet->addSheet($worksheet, 3);
         }
-
-
-        $spreadsheet->addSheet($worksheet, 3);
-
         // ------------------------------------------------------
         // About Giftcard
 
-        $data = CardDetails::select('name', 'ordering_api', 'dist_site')->where('company_id', $id)->first();
-
-
-        // Create a new worksheet
-        $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Giftcard Details');
-
-        $i = 0;
-        $alphas = range('A', 'Z');
-
-        foreach ($data->toArray() as $key => $value)
+        $data = CardDetails::select(array_keys($fields['giftcard_details']))->where('company_id', $id)->first();
+        if (!empty($data))
         {
-            $worksheet->setCellValue($alphas[$i] . '1', $key);
+
+            // Create a new worksheet
+            $worksheet = new \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet($spreadsheet, 'Giftcard Details');
+
+            $i = 0;
+
+            $alphas2 = $this->createColumnsArray('AZ', 'A');
+            $alphas = array_merge($alphas, $alphas2);
 
 
-            if ($key == 'ordering_api')
+            foreach ($data->toArray() as $key => $value)
             {
-                $value = $this->getYN($value);
+                $worksheet->setCellValue($alphas[$i] . '1', $fields['giftcard_details'][$key]);
+
+
+                if ($key == 'ordering_api')
+                {
+                    $value = $this->getYN($value);
+                }
+
+                if (is_object($value))
+                {
+                    $value = $this->retSelJopt($value);
+
+                }
+
+
+                $worksheet->setCellValue($alphas[$i] . '2', $this->confFieldFunc($key, $value));
+
+                ++$i;
             }
 
-            if (is_object($value))
-            {
-                $value = $this->retSelJopt($value);
 
-            }
-
-
-            $worksheet->setCellValue($alphas[$i] . '2', $value);
-
-            ++$i;
+            $spreadsheet->addSheet($worksheet, 3);
         }
-
-
-        $spreadsheet->addSheet($worksheet, 3);
-
 
         // finally set active sheet
         $spreadsheet->setActiveSheetIndex(0);
 
         $writer = new Xlsx($spreadsheet);
-        $writer->save($id . '-' . time() . '-onboarding.xlsx');
+
+        $dataDir = 'onboarding';
+
+        if (!\Storage::exists($dataDir))
+        {
+            \Storage::makeDirectory($dataDir);
+        }
+
+        $xlName = $id . '-onboarding.xlsx';
+
+        $writer->save('storage/app/' . $dataDir . '/' . $xlName);
+
+
+        //---------
+
+        $this->pack($id);
 
     }
 
+
+    /**
+     * gathering users data and pack in tar archive
+     *
+     * @param $id
+     */
+    function pack($id)
+    {
+        $storagePath = 'storage/app/onboarding/';
+
+        $company = Comp::where('id', $id)->first();
+        $nameSlug = \Str::slug($company->name);
+
+        $archFilename = 'onboarding-' . $nameSlug;
+        $companyPath = $storagePath . $nameSlug;
+
+        $data = MarketingMaterial::where('company_id', $id)->first();
+
+        exec('mkdir ' . $companyPath);
+
+        exec('mv ' . $storagePath . '/' . $id . '-*.xlsx ' . $companyPath);
+
+        exec('cp ' . $data->moodpicture_local_path . ' ' . $companyPath);
+        exec('cp ' . $data->cardimage_local_path . ' ' . $companyPath);
+        exec('cp ' . $data->companylogo_local_path . ' ' . $companyPath);
+
+        exec('rm -rf ' . $storagePath . '/' . $archFilename);
+
+        exec('zip -jrm ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
+
+        //exec('tar -czvf ' . $storagePath . '/' . $archFilename . '.tar  -C ' . $storagePath . ' ' . $nameSlug);
+        exec('rm -rf ' . $storagePath . '/' . $nameSlug);
+
+    }
+
+    public function getOnboardingDataArch(Request $request)
+    {
+
+        // create excel sheet
+        $this->createSpredsheet($request->id);
+
+        $company = Comp::where('id', $request->id)->first();
+        $nameSlug = \Str::slug($company->name);
+        $filename = 'onboarding-' . $nameSlug . '.zip';
+
+        return response()->download(storage_path("app/onboarding/{$filename}"));
+    }
+
+
+    /**
+     * test confFieldFunc()
+     *
+     * @param $fields
+     * @param $id
+     */
+    private function testFieldsfunc($fields, $id)
+    {
+
+        $data = FinInfo::select(array_keys($fields['financial_information']))->where('company_id', $id)->first();
+        // $data = CardDetails::select(array_keys($fields['giftcard_details']))->where('company_id', $id)->first();
+        //$data = MarketingMaterial::select(array_keys($fields['marketing_material']))->where('company_id', $id)->first();
+
+
+        /* echo "<pre>";
+         print_r($data);
+         echo "</pre>";
+         die();*/
+        foreach ($data->toArray() as $key => $value)
+        {
+            echo $key;
+            echo " --> ";
+
+            echo $this->confFieldFunc($key, $value);
+
+            echo "<br>";
+        }
+
+
+    }
+
+
+    /**
+     * Replace / Format Values for Excel
+     *
+     * @param $_fieldame
+     * @param $_value
+     * @return mixed|string
+     */
+    private function confFieldFunc($_fieldame, $_value)
+    {
+        $retVal = $_value;
+
+
+        $guarded = ['redeem_per_trans'];
+
+        if (in_array($_fieldame, $guarded))
+        {
+            return $_value;
+        }
+
+        if ($_fieldame == 'validity_starts_from')
+        {
+
+            if ($_value == "9")
+            {
+                $retVal = $this->getYN(9);
+            }
+
+        }
+        // fininf
+        if ($_fieldame == 'settlement_mode')
+        {
+
+
+            $retArr['9'] = $this->getYN(9);
+            $retArr[1] = 'When supplier redeems on site ';
+            $retArr[2] = 'Sold by us';
+
+            return $retArr[$_value];
+        }
+
+        //fininf
+        if ($_fieldame == 'payment_mode')
+        {
+
+            $retArr['9'] = $this->getYN(9);
+            $retArr[1] = 'We transfer the money ';
+            $retArr[2] = 'You send us an invoice';
+
+            return $retArr[$_value];
+        }
+
+
+        // --------------------------------------
+        /* default */
+        if (is_null($_value))
+        {
+            $_value = 9; // set empty value to 9 will return n/a froom function getYN()
+        }
+
+        if (is_int($_value) && strlen($_value) == 1)
+        {
+
+            $retVal = $this->getYN($_value);
+
+        }
+
+        if (is_object($_value))
+        {
+
+            $retVal = $this->retSelJopt($_value);
+
+            if ($retVal == "")
+            {
+                $retVal = $this->getYN(9);
+            }
+
+        }
+
+
+        return $retVal;
+    }
 
     /**
      * @param $_val
@@ -324,10 +527,10 @@ class Company extends ComponentBase
 
 
         // set confirmed to 0 when frontend form is unlocked from backend
-        if (!isset($data['fe_captured']) && $data['company']['locked'] == 0)
-        {
-            $data['company']['confirmed'] = 0;
-        }
+        /*        if (!isset($data['fe_captured']) && $data['company']['locked'] == 0)
+                {
+                    $data['company']['confirmed'] = 0;
+                }*/
 
         $company_id = $data['company_id'];
         $company->where('id', $company_id)->update($data['company']);
@@ -559,6 +762,49 @@ class Company extends ComponentBase
         return \Redirect::back();
     }
 
+
+    /**
+     * @param $end_column
+     * @param string $first_letters
+     * @return array
+     */
+    function createColumnsArray($end_column, $first_letters = '')
+    {
+        $columns = array();
+        $length = strlen($end_column);
+        $letters = range('A', 'Z');
+
+        // Iterate over 26 letters.
+        foreach ($letters as $letter)
+        {
+            // Paste the $first_letters before the next.
+            $column = $first_letters . $letter;
+
+            // Add the column to the final array.
+            $columns[] = $column;
+
+            // If it was the end column that was added, return the columns.
+            if ($column == $end_column)
+            {
+                return $columns;
+            }
+        }
+
+        // Add the column children.
+        foreach ($columns as $column)
+        {
+            // Don't itterate if the $end_column was already set in a previous itteration.
+            // Stop iterating if you've reached the maximum character length.
+            if (!in_array($end_column, $columns) && strlen($column) < $length)
+            {
+                $new_columns = createColumnsArray($end_column, $column);
+                // Merge the new columns which were created with the final columns array.
+                $columns = array_merge($columns, $new_columns);
+            }
+        }
+
+        return $columns;
+    }
 
     /**
      * @param $fieles

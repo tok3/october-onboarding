@@ -11,7 +11,7 @@
     <div class="card mb-4">
         <div id="compTabs" class="card-body">
 
-            {{ form_open({ url: 'company/update', files: true }) }}
+            {{ form_open({ url: 'company/update', files: true, id:"beForm"}) }}
             <input type="hidden" name="company_id" value="{{company.id}}">
             <!-- tab -->
 

@@ -521,7 +521,7 @@
         <div class="col-md-2">
             <div class="form-group g-mb-20">
                 {{form_select('card[validity_starts_from]',
-                {'9':'Please Select'|_ , 'on reveive' :'When We receive them'|_},
+                {'9':'Please Select'|_ , 'on receive' :'When We receive them'|_, 'direct' :'Direct'|_},
                 card.validity_starts_from,
                 {'class':'form_input form-control rounded-0'})}}
             </div>
@@ -538,7 +538,7 @@
         <div class="col-md-2">
             <div class="form-group g-mb-20">
                 {{form_select('card[templ_provided_by]',
-                {'n/a':'Please Select'|_ , 'on reveive' :'Provided by supplier'|_, 'gogift' :'Provided by GoGift'|_},
+                {'n/a':'Please Select'|_ , 'supplier' :'Provided by you'|_, 'gogift' :'Provided by GoGift'|_},
                 card.templ_provided_by,
                 {'class':'form_input form-control rounded-0'})}}
             </div>

@@ -14,6 +14,8 @@ Route::post('/contact/create', 'Eq3w\Onboarding\Components\Company@addContact')-
 Route::get('/company/create', 'Eq3w\Onboarding\Components\Company@create')->middleware('web');
 Route::get('/company/exl/{id}', 'Eq3w\Onboarding\Components\Company@createSpredsheet')->middleware('web');
 
+Route::get('/company/dlarch/{id}', 'Eq3w\Onboarding\Components\Company@getOnboardingDataArch')->middleware('web');
+
 Route::get('/countries', 'Eq3w\Onboarding\Components\Company@getCountries')->middleware('web');
 
 

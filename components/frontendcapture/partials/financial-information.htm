@@ -140,7 +140,7 @@
             <div class="col-md-3">
                 <div class="form-group g-mb-20">
                     {{form_select('fininf[settlement_mode]',
-                    {'0':'Please Select'|_ , '0' :'When supplier redeems on site '|_},
+                    {'9':'Please Select'|_ , '1' :'When supplier redeems on site '|_, '2' :'Sold by us'|_},
                     data.settlement_mode,
                     {'class':'form_input form-control rounded-0'})}}
 
@@ -157,7 +157,7 @@
             <div class="col-md-3">
                 <div class="form-group g-mb-20">
                     {{form_select('fininf[payment_mode]',
-                    {'0':'Please Select'|_ , '0' :'We transfer the money'|_},
+                    {'9':'Please Select'|_ , '1' :'We transfer the money'|_, '2' :'You send us an invoice'|_},
                     data.payment_mode,
                     {'class':'form_input form-control rounded-0'})}}
 

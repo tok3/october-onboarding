@@ -4,6 +4,7 @@ $(document).ready(function () {
     // Set selected theme on page refresh
     $("#theme_selector").change();
 
+
     // set form to readonly if data is locked
     if ($("#feCapture").data("is-locked") === 1) {
 
