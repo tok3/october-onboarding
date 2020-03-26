@@ -84,8 +84,8 @@ class Company extends ComponentBase
         $fields = include('plugins/eq3w/onboarding/export-fields.php');
 
 
-        $this->testFieldsfunc($fields, $id);
-        die();
+      /*  $this->testFieldsfunc($fields, $id);
+        die();*/
 
 
         // ------------------------------------------------------
@@ -408,7 +408,10 @@ class Company extends ComponentBase
             $retArr[1] = 'When supplier redeems on site ';
             $retArr[2] = 'Sold by us';
 
-            return $retArr[$_value];
+            if (isset($retArr[$_value]))
+            {
+                return $retArr[$_value];
+            }
         }
 
         //fininf
@@ -419,7 +422,11 @@ class Company extends ComponentBase
             $retArr[1] = 'We transfer the money ';
             $retArr[2] = 'You send us an invoice';
 
-            return $retArr[$_value];
+            if (isset($retArr[$_value]))
+            {
+                return $retArr[$_value];
+            }
+
         }
 
 
