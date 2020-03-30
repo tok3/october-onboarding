@@ -86,7 +86,9 @@
         </div>
         <div class="col-md-4">
             {% if marketing.cardimage != false %}
-            <p>{{marketing.cardimage_org_name}} <span class="fa fa-check text-success">&nbsp;</span></p>
+
+            <p>{{marketing.cardimage_org_name}} <span class="fa fa-check text-success">&nbsp;</span>&nbsp;<a href="{{marketing.cardimage}}" target="_blank"><span class="fa fa-eye text-default">&nbsp;</span></a></p>
+
             {% endif %}
         </div>
     </div>
@@ -109,7 +111,7 @@
 
     </div>
 
-    <div class="row rm-if-confirmed">
+    <div class="row align-items-center">
         <!-- Left Column -->
         <div class="col-md-4">
             {{ 'allow_adword_campaign'|_ }}
