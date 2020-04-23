@@ -195,3 +195,5 @@
     - Mail
 1.0.69:
     - Gitupdate
+1.0.70:
+    - 'Move mail views'
