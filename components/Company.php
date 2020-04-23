@@ -80,16 +80,17 @@ class Company extends ComponentBase
      */
     public function createSpredsheet($id)
     {
-
+        // config which fields are exported to excel sheet
         $fields = include('plugins/eq3w/onboarding/export-fields.php');
 
 
-      /*  $this->testFieldsfunc($fields, $id);
-        die();*/
+        /*  $this->testFieldsfunc($fields, $id);
+          die();*/
 
 
         // ------------------------------------------------------
         // company
+
 
         $data = Comp::select(array_keys($fields['company']))->where('id', $id)->first();
 
@@ -539,8 +540,20 @@ class Company extends ComponentBase
                     $data['company']['confirmed'] = 0;
                 }*/
 
+
+        // send notification to backend user when customer finishes capturing
+        if (Input::get('fe_captured') == 1 && $data['company']['confirmed'])
+        {
+            $this->sendNotification($data);
+            $data['company']['locked'] = 1;
+
+        }
+
+        //-----------------------------------------------------
+        // Company / General Information
         $company_id = $data['company_id'];
         $company->where('id', $company_id)->update($data['company']);
+
 
         //-----------------------------------------------------
         // financial information
@@ -672,6 +685,22 @@ class Company extends ComponentBase
 
     }
 
+    /**
+     * @param $data
+     */
+    private function sendNotification($data)
+    {
+
+        $dataFilled['name'] = $data['company']['name'];
+
+
+        \Mail::sendTo('tobias@mmsetc.de', 'eq3w.onboarding::mail.capturing_complete', $dataFilled, function ($message) {
+            $message->from('noreply@gogift.com', 'gogift.com');
+            $message->subject('Customer submitted all required information');
+            $message->replyTo('noreply@gogift.com');
+        }
+        );
+    }
 
     /**
      * Cleanup local storage and system file table
@@ -679,7 +708,8 @@ class Company extends ComponentBase
      * @param $_company_id
      * @param $_cuFile
      */
-    private function cleanupSf($_company_id, $_cuFile)
+    private
+    function cleanupSf($_company_id, $_cuFile)
     {
 
         $mm = MarketingMaterial::select($_cuFile)->where('company_id', $_company_id)->firstOrFail();
@@ -693,7 +723,7 @@ class Company extends ComponentBase
 
     }
 
-    //-----------------------------------------------------
+//-----------------------------------------------------
     function bulkdummies()
     {
         Test::prep();
@@ -707,7 +737,8 @@ class Company extends ComponentBase
      * @param $company_id
      * @param $contacts
      */
-    private function cruContacts($company_id, $contacts)
+    private
+    function cruContacts($company_id, $contacts)
     {
 
         foreach ($contacts as $contacts_id => $contact)
@@ -734,7 +765,8 @@ class Company extends ComponentBase
     /**
      * @return mixed
      */
-    public function getCountries()
+    public
+    function getCountries()
     {
 
         return Helper::getCountries();
@@ -746,7 +778,8 @@ class Company extends ComponentBase
      *
      * @return mixed
      */
-    public function contactTypes()
+    public
+    function contactTypes()
     {
 
         $types = ContactTypes::get();
@@ -759,7 +792,8 @@ class Company extends ComponentBase
      *
      * @return mixed
      */
-    public function addContact()
+    public
+    function addContact()
     {
         $data = Input::all();
         $company_id = $data['company_id'];
@@ -832,7 +866,8 @@ class Company extends ComponentBase
      *
      *
      */
-    private function messageTranslationForYaml()
+    private
+    function messageTranslationForYaml()
     {
         $msg = DB::table('rainlab_translate_messages')->get();
 
@@ -876,7 +911,8 @@ class Company extends ComponentBase
      *
      * @return mixed
      */
-    public function onFileUpload()
+    public
+    function onFileUpload()
     {
         die();
 

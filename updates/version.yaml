@@ -191,3 +191,5 @@
 1.0.67:
     - 'Updated table eq3w_onboarding_companies'
     - builder_table_update_eq3w_onboarding_companies9.php
+1.0.68:
+    - Mail

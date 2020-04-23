@@ -18,5 +18,11 @@ class Plugin extends PluginBase
 
     }
 
+    public function registerMailTemplates()
+    {
+        return [
+            'eq3w.onboarding::mail.capturing_complete'
+        ];
+    }
 
 }
