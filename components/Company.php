@@ -694,7 +694,7 @@ class Company extends ComponentBase
         $dataFilled['name'] = $data['company']['name'];
 
 
-        \Mail::sendTo('tobias@mmsetc.de', 'eq3w.onboarding::mail.capturing_complete', $dataFilled, function ($message) {
+        \Mail::sendTo('mike.hennig@gogift.com', 'eq3w.onboarding::mail.capturing_complete', $dataFilled, function ($message) {
             $message->from('noreply@gogift.com', 'gogift.com');
             $message->subject('Customer submitted all required information');
             $message->replyTo('noreply@gogift.com');
