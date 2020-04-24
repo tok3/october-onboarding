@@ -108,16 +108,20 @@
         <!-- Left Column -->
         <div class="col-md-4">
             {{ 'Please select the payment model'|_ }}
+            <i class="fas fa-eye-slash " title="{{ 'Information not visible for customer'|_ }}">&nbsp;</i>
         </div>
 
         <div class="col-md-2">
-            <div class="form-group g-mb-20">
+
+            <div class="form-group g-mb-20" >
+
                 {{form_select('fininf[payment_model]',
                 {'0':'Please Select'|_ , '1' :'Pre Payment'|_, '2' :'Post Payment'|_, '3' :'Commission'|_, '4' :'Deposit'|_ },
                 data.payment_model,
                 {'class':'form_input form-control rounded-0'})}}
 
             </div>
+
 
         </div>
 

@@ -197,3 +197,5 @@
     - Gitupdate
 1.0.70:
     - 'Move mail views'
+1.0.71:
+    - 'Mailtemplate update'
