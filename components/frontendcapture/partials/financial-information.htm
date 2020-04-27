@@ -104,7 +104,7 @@
         <div class="col-md-2">
             <div class="form-group g-mb-20">
 
-                {{form_select('fininf[disc_granted]', {'0':'Please Select'|_ , '1' :'Directly'|_ },data.disc_granted,{'class':'form_input form-control rounded-0'})}}
+                {{form_select('fininf[disc_granted]', {'0':'Please Select'|_ , '1' :'Directly'|_ ,'2' :'Retrospective EOY'},data.disc_granted,{'class':'form_input form-control rounded-0'})}}
             </div>
 
         </div>
@@ -131,6 +131,8 @@
 
     </div>-->
 #}
+
+    {%if data.payment_model == 3%}
     <section id="wrpSetCom">
        <!-- <h5 class="h6 text-info"><i class="fa fa-info-circle"></i> Please fill out the following only if you have selected commission model </h5>-->
 
@@ -169,7 +171,7 @@
             </div>
         </div>
     </section>
-
+    {% endif %}
     <div class="row">
         <!-- Left Column -->
         <div class="col-md-4">

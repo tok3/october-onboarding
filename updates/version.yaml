@@ -199,3 +199,8 @@
     - 'Move mail views'
 1.0.71:
     - 'Mailtemplate update'
+1.0.72:
+    - 'Updated table eq3w_onboarding_gifcard_details'
+    - builder_table_update_eq3w_onboarding_gifcard_details20.php
+1.0.73:
+    - 'field updates'

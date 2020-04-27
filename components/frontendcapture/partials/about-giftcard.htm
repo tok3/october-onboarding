@@ -264,6 +264,21 @@
 
         </div>
     </div>
+
+    <div class="row align-items-center">
+        <!-- Left Column -->
+        <div class="col-md-4 my-auto">
+            {{ 'In which currency is the gift card issued ?'|_ }}
+        </div>
+        <div class="col-md-2">
+            <div class="form-group g-mb-20 my-auto">
+                {{form_text('card[currency]', card.currency,{'class':'form-control form-control-md rounded-0','placeholder':''|_,'id':'currency'}) }}
+
+            </div>
+
+        </div>
+    </div>
+
     <section id="showIsPCard">
         <div class="row align-items-center">
             <!-- Left Column -->
@@ -449,7 +464,7 @@
 
         <div class="col-md-4 balanceCheck ">
             <div class="form-group my-auto g-mb-20">
-                {{form_text('card[balance_check]', card.balance_check,{'class':'form-control form-control-md rounded-0','placeholder':'Enter Balance Check'}) }}
+                {{form_text('card[balance_check]', card.balance_check,{'class':'form-control form-control-md rounded-0','placeholder':'Enter details here"'}) }}
             </div>
 
         </div>
@@ -534,7 +549,7 @@
         <div class="col-md-2">
             <div class="form-group my-auto g-mb-20">
                 {{form_select('card[validity_starts_from]',
-                {'9':'Please Select'|_ , 'on receive' :'When We receive them'|_, 'direct' :'Direct'|_},
+                {'9':'Please Select'|_ , 'on receive' :'When we receive them'|_, 'direct' :'Direct'|_},
                 card.validity_starts_from,
                 {'class':'form_input form-control rounded-0'})}}
             </div>

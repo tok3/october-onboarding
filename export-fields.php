@@ -48,6 +48,7 @@ return [
         'ordering_api' => 'ordering_api',
         'has_min_req' => 'has_min_req',
         'min_req_val' => 'min_req_val',
+        'currency' => 'Card Currency',
         'card_formats' => 'card_formats',
         'val_per_api' => 'val_per_api',
         'pin_on_card' => 'pin_on_card',

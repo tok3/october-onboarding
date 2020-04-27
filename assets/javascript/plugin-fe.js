@@ -1,5 +1,21 @@
+
+
 $(document).ready(function () {
 
+    // test form submit hintergrund wenn model form is saved
+    submitForms = function(){
+        $('#formAddContact')[0].checkValidity();
+        document.getElementById("formAddContact").submit();
+        document.getElementById("feCapture").submit();
+
+    }
+
+    $("#tester").on("click", function () {
+        // Navigate previous
+        submitForms();
+        return true;
+    });
+// ende submit test
 
     // Set selected theme on page refresh
     $("#theme_selector").change();
@@ -13,6 +29,7 @@ $(document).ready(function () {
 
 
     }
+
 
 
     // Step show event
