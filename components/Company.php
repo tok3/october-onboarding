@@ -317,10 +317,10 @@ class Company extends ComponentBase
         exec('cp ' . $data->cardimage_local_path . ' ' . $companyPath);
         exec('cp ' . $data->companylogo_local_path . ' ' . $companyPath);
 
+        exec('rm -rf ' . $storagePath . '/' . $archFilename);
 
-        //exec('rm -rf ' . $storagePath . '/' . $archFilename);
-
-        exec('zip -jrm ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
+      //  exec('zip -jrm ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
+        exec('zip -j ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
         //exec('tar -czvf ' . $storagePath . '/' . $archFilename . '.tar  -C ' . $storagePath . ' ' . $nameSlug);
         exec('rm -rf ' . $storagePath . '/' . $nameSlug);
 
