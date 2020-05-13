@@ -211,3 +211,5 @@
     - builder_table_update_eq3w_onboarding_companies_9.php
 1.0.76:
     - 'zip and contacts update'
+1.0.77:
+    - 'contact type update'

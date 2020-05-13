@@ -122,6 +122,7 @@ class Company extends ComponentBase
 
         foreach (ContactTypes::get() as $key => $item)
         {
+            $contactTypes[0] = 'n/a';
             $contactTypes[$item->id] = $item->name;
 
         }
