@@ -16,12 +16,17 @@
 <input type="hidden" name="fe_captured" value="1">
 
 
+{% flash %}
+<div class="alert alert-{{ type == 'error' ? 'danger' : type }}">
+    {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+</div>
+{% endflash %}
 
 <!-- SmartWizard html -->
 <div id="smartwizard" class="g-brd-around g-brd-gray-light-v4 g-pa-30 g-mb-30 col-md-12">
 
     <h1>Onboarding</h1>
-
     <ul>
         <li><a href="#step-1">Step 1<br/><small>General Information</small></a></li>
         <li><a href="#step-2">Step 2<br/><small>Contacts</small></a></li>

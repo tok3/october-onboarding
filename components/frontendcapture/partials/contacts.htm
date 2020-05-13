@@ -79,6 +79,69 @@
 
     </div>
     {% endfor %}
+    <!-- -->
+    {% if data|length ==0 %}
+    <div class="row" >
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10">{{ 'Contact Type'|_ }}</label>
+                <select name="contacts[0][type]" class="form-control rounded-0">
+                    <option value="0">{{ 'Please Select'|_ }}</option>
+                    {% for contactType in contactTypes %}
+                    <option value="{{ contactType.id }}">{{ contactType.name }}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10">{{ 'First Name'|_ }}</label>
+                {{form_text('contacts[0][firstname]', data.firstname,{'class':'form-control form-control-md rounded-0'}) }}
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10">{{ 'Last Name'|_ }}</label>
+                {{form_text('contacts[0][lastname]', data.lastname,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10">{{ 'Position'|_ }}</label>
+                {{form_text('contacts[0][position]', data.position,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10">{{ 'E-Mail'|_ }}</label>
+                {{form_email('contacts[0][email]', data.email,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+        </div>
+
+        <div class="col-md-2">
+            <div class="form-group g-mb-20">
+                <label class="g-mb-10">{{ 'Phone'|_ }}</label>
+                {{form_text('contacts[0][phone]', data.phone,{'class':'form-control form-control-md rounded-0'}) }}
+
+            </div>
+
+        </div>
+
+    </div>
+{%else%}
+
+    <!-- -->
 
 
     <div class="row" id="addContact">
@@ -91,7 +154,8 @@
 
         </div>
     </div>
-
+    {%endif%}
 
 </fieldset>
+
 

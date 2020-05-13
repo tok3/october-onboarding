@@ -313,18 +313,45 @@ class Company extends ComponentBase
 
         exec('mv ' . $storagePath . '/' . $id . '-*.xlsx ' . $companyPath);
 
+                exec('cp ' . $data->moodpicture_local_path . ' ' . $companyPath);
+                exec('cp ' . $data->cardimage_local_path . ' ' . $companyPath);
+                exec('cp ' . $data->companylogo_local_path . ' ' . $companyPath);
+
+
+        exec('zip -j ' . $storagePath . '/' . $archFilename . '.zip ' . $companyPath.'/*');
+
+        exec('rm -rf ' . $companyPath);
+
+    }
+/*
+    function _pack($id)
+    {
+        $storagePath = 'storage/app/onboarding/';
+
+        $company = Comp::where('id', $id)->first();
+        $nameSlug = \Str::slug($company->name);
+
+        $archFilename = 'onboarding-' . $nameSlug;
+        $companyPath = $storagePath . $nameSlug;
+
+        $data = MarketingMaterial::where('company_id', $id)->first();
+
+        exec('mkdir ' . $companyPath);
+
+        exec('mv ' . $storagePath . '/' . $id . '-*.xlsx ' . $companyPath);
+
         exec('cp ' . $data->moodpicture_local_path . ' ' . $companyPath);
         exec('cp ' . $data->cardimage_local_path . ' ' . $companyPath);
         exec('cp ' . $data->companylogo_local_path . ' ' . $companyPath);
 
         exec('rm -rf ' . $storagePath . '/' . $archFilename);
 
-      //  exec('zip -jrm ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
-        exec('zip -j ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
+       exec('zip -jrm ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
+        //exec('zip -j ' . $storagePath . '/' . $archFilename . '.zip ' . $storagePath . ' ' . $nameSlug);
         //exec('tar -czvf ' . $storagePath . '/' . $archFilename . '.tar  -C ' . $storagePath . ' ' . $nameSlug);
         exec('rm -rf ' . $storagePath . '/' . $nameSlug);
 
-    }
+    }*/
 
     public function getOnboardingDataArch(Request $request)
     {
@@ -335,6 +362,7 @@ class Company extends ComponentBase
         $company = Comp::where('id', $request->id)->first();
         $nameSlug = \Str::slug($company->name);
         $filename = 'onboarding-' . $nameSlug . '.zip';
+
 
         return response()->download(storage_path("app/onboarding/{$filename}"));
     }
@@ -619,8 +647,11 @@ class Company extends ComponentBase
 
         //-----------------------------------------------------
         // contacts
+
         if (isset($data['contacts']))
         {
+
+
             $this->cruContacts($company_id, $data['contacts']);
         }
 
@@ -633,10 +664,6 @@ class Company extends ComponentBase
         // upload images
         if (isset($data['files']))
         {
-            echo "<pre>";
-            print_r($data['files']);
-
-            echo "</pre>";
 
 
             foreach ($data['files'] as $key => $tmpFile)
@@ -744,8 +771,14 @@ class Company extends ComponentBase
         foreach ($contacts as $contacts_id => $contact)
         {
 
-            if ($contacts_id === 0)
+            if ($contacts_id === 0 && $contact['email'] != '')
             {
+                if(filter_var($contact['email'], FILTER_VALIDATE_EMAIL) == 1)
+                {
+                    \Flash::error('Please enter a valid email address');
+                return;
+                }
+
                 $contact['company_id'] = $company_id;
 
                 Contact::insert($contact);
