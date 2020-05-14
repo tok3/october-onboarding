@@ -575,6 +575,7 @@ class Company extends ComponentBase
         {
             $this->sendNotification($data);
             $data['company']['locked'] = 1;
+            \Flash::success('Thank you for confirming!');
 
         }
 
