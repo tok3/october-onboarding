@@ -45,6 +45,10 @@ $(document).ready(function () {
         }
     });
 
+
+
+
+
     // Toolbar extra buttons
     var btnFinish = $('<button></button>').text('Finish')
         .addClass('btn btn-info')
@@ -58,14 +62,22 @@ $(document).ready(function () {
         });
 
 
+
     // set current step id when not in session storage
     if (typeof sessionStorage['step_id'] === 'undefined') {
         sessionStorage['step_id'] = 0;
     }
+    // save current step to session storage
+    $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
 
+        sessionStorage['step_id'] = stepNumber;
+
+    })
     // Smart Wizard
+
     var wizz = $('#smartwizard').smartWizard({
         selected: sessionStorage['step_id'],
+        //selected: 2,
         keyNavigation: false,
         theme: 'arrows',
         transitionEffect: 'fade',
@@ -84,12 +96,6 @@ $(document).ready(function () {
     });
 
 
-    // save current step to session storage
-    $("#smartwizard").on("showStep", function (e, anchorObject, stepNumber, stepDirection, stepPosition) {
-
-        sessionStorage['step_id'] = stepNumber;
-
-    })
 
 
     // External Button Events
@@ -107,15 +113,15 @@ $(document).ready(function () {
 
     $("#next-btn").on("click", function () {
         // Navigate next
-        $('#smartwizard').smartWizard("next");
+       // $('#smartwizard').smartWizard("next");
+
+       var nSt = parseInt(sessionStorage['step_id']) + parseInt(1);
+       $('#smartwizard').smartWizard('goToStep', nSt);
+
         return true;
     });
 
-    $("#theme_selector").on("change", function () {
-        // Change theme
-        $('#smartwizard').smartWizard("theme", $(this).val());
-        return true;
-    });
+
 
 
 });
