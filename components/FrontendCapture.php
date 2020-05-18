@@ -153,7 +153,7 @@ class FrontendCapture extends ComponentBase
      */
     public function onRun()
     {
-        $this->addJs('/themes/unify/assets/vendor/SmartWizard-master/dist/js/jquery.smartWizard.js');
+        $this->addJs('/themes/unify/assets/vendor/SmartWizard-master/dist/js/jquery.smartWizard.js?cb=' . time());
         $this->addJs('/plugins/eq3w/onboarding/assets/javascript/plugin-fe.js?cb=' . time());
 
         $this->addCss('/plugins/eq3w/onboarding/assets/css/plugin.css?cb=' . time());
